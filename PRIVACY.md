@@ -22,7 +22,7 @@ The app does not process private messages, votes, IP addresses, email addresses,
 - **Telegram, for reports.** The app sends each report's reason, the title of the reported post (or of the post a reported comment is on), the first 700 characters of the post or comment text, the report count and the permalink to the same group or channel.
 - **Telegram, for reposts.** When the app removes a repost, it sends the repost's title, author username and link URL, and the permalinks of the repost and the original post, to the same group or channel.
 - **Logs.** The app logs each post submission and report it receives and each message it sends to Telegram, to help diagnose failed messages. Reddit stores and retains these logs as part of the Developer Platform, under Reddit's [privacy policy](https://www.reddit.com/policies/privacy-policy).
-- **Storage.** The app stores the IDs of the posts it has sent, and the ID, reason and report count of each report it has sent, in Reddit's Developer Platform storage for 24 hours, so nothing is sent twice. To spot reposts, it stores each link post's ID with its link URL (minus tracking parameters) and title, for 7 days. It stores no other data.
+- **Storage.** The app stores the IDs of the posts it has sent, and the ID, reason and report count of each report it has sent, in Reddit's Developer Platform storage for 24 hours, so nothing is sent twice. To spot reposts, it stores each link post's ID with its link URL (minus tracking parameters) and title, for 7 days. The app sends each post about 30 seconds after it is submitted, and only if it is still up then. Until then, the post details it will send wait in the Developer Platform's scheduler. It stores no other data.
 
 The app does not sell data, does not use it for advertising, and does not send it anywhere other than the places listed above.
 
@@ -30,7 +30,7 @@ The app does not sell data, does not use it for advertising, and does not send i
 
 ## Removing content
 
-The app copies a post when it's submitted, and a report when it's made. Editing or deleting the post on Reddit afterwards doesn't change or remove the Telegram message. To have a message removed, contact the moderators of the subreddit.
+The app copies a post about 30 seconds after it's submitted, and a report when it's made. A post removed or deleted within those 30 seconds is not copied. Editing or deleting the post on Reddit afterwards doesn't change or remove the Telegram message. To have a message removed, contact the moderators of the subreddit.
 
 ## Changes
 
